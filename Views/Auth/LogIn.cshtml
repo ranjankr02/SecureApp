@@ -1,0 +1,47 @@
+﻿@using SecureApp.SecureApp.DAL.EntityModels
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model User;
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Change or remove this line if you're not using a layout
+}
+
+<div class="d-flex align-items-center justify-content-center vh-100" ;">
+    <div class="card shadow-lg p-4 login-card" style="max-width: 400px; width: 100%; border-radius: 15px;">
+        <h3 class="text-center mb-4 fw-semibold">Login</h3>
+
+        <form asp-action="Login" asp-controller="Account" method="post">
+            <!-- Username -->
+            <div class="mb-3">
+                <label asp-for="UserName" class="form-label">Username</label>
+                <input asp-for="UserName" class="form-control" placeholder="Enter your username" required />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label">Password</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password" required />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <!-- Forgot Password -->
+            <div class="text-end mb-3">
+                <a asp-action="ForgotPassword" asp-controller="Account" class="text-decoration-none">Forgot Password?</a>
+            </div>
+
+            <!-- Login Button -->
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-lg">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

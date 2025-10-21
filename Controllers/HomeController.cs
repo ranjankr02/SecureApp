@@ -15,7 +15,13 @@ namespace SecureApp.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            //return View();
+
+            return RedirectToAction("LogIn", "Auth");
+
+
+
+
         }
 
         public IActionResult Privacy()
